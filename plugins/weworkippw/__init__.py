@@ -16,6 +16,11 @@ from app.plugins import _PluginBase
 from app.core.config import settings
 from app.helper.cookiecloud import CookieCloudHelper
 
+import sys
+import asyncio
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+    
 from playwright.sync_api import sync_playwright
 
 class WeWorkIPPW(_PluginBase):
